@@ -19,34 +19,34 @@ from math import exp, log;
 # Numpy
 try: import numpy as np;
 except: 
-    print "Error: NumPy library not found, see http://www.numpy.org";
+    print ("Error: NumPy library not found, see http://www.numpy.org");
     sys.exit(1);
 # NiBabel
 try: import nibabel as nib;
 except: 
-    print "Error: NiBabel library not found,";
-    print "       see http://nipy.org/nibabel/installation.html";
+    print("Error: NiBabel library not found,");
+    print("       see http://nipy.org/nibabel/installation.html");
     sys.exit(1);  
 # Python Imaging Library (PIL), alternative "pillow"
 PIL_installed=True;
 try: from PIL import Image, ImageTk;
 except: 
-    print "Warning: PIL library not found, fallback to internal alternative";
-    print "         to install PIL see http://www.pythonware.com/products/pil";
-    print "         to install `pillow` (a dropin PIL fork) see http://python-pillow.org/"
-    print "         and follow the released link to http://pypi.python.org/pypi/Pillow/"    
+    print("Warning: PIL library not found, fallback to internal alternative");
+    print("         to install PIL see http://www.pythonware.com/products/pil");
+    print("         to install `pillow` (a dropin PIL fork) see http://python-pillow.org/");
+    print("         and follow the released link to http://pypi.python.org/pypi/Pillow/");
     PIL_installed=False;
 # Tkinter    
 try: import Tkinter as tk;   # Python2
 except: 
   try: import tkinter as tk; # Python3
   except: 
-    print \
+    print (\
     "Error: Tkinter library not found, see one of the following:\n",\
     "       - Linux: http://tkinter.unpythonic.net/wiki/How_to_install_Tkinter\n",\
     "       - MacOs: http://www.python.org/download/mac/tcltk\n",\
     "       - Windows: already included with python, http://www.python.org\n",\
-    "                  otherwise: http://www.lfd.uci.edu/~gohlke/pythonlibs\n"
+    "                  otherwise: http://www.lfd.uci.edu/~gohlke/pythonlibs\n")
     sys.exit(1);           
 try: from tkMessageBox import showerror;       # Python 2
 except: pass
@@ -123,8 +123,8 @@ def Update (slice,te, tr, ti):
         imageTk=tk.PhotoImage(data=make_img(NN_zoom(data,zoom_X,zoom_Y)));
     IMG_tkLabel.configure(image=imageTk); # image redisplaying
     IMG_tkLabel.image = imageTk;          # keep a reference!     
-    #print "Slice=%d  -  TE=%d - TR=%d - TI=%d" % (slice, te, tr, ti); # debug
-    #if tr<ti+te: print "TR<TI+TE -  Ouch !!!" # debug
+    #print("Slice=%d  -  TE=%d - TR=%d - TI=%d" % (slice, te, tr, ti); # debug
+    #if tr<ti+te: print("TR<TI+TE -  Ouch !!!" # debug
         
 def validateTE (TE):
     global RecalcNoise;
